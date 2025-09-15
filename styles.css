@@ -1,0 +1,138 @@
+/* Part 1: CSS3 Transitions & Keyframes */
+
+/* Button hover effect */
+.hover-button {
+  padding: 0.75em 1.5em;
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hover-button:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+/* Continuous fade animation */
+.fade-box {
+  width: 100px;
+  height: 100px;
+  background: coral;
+  margin-top: 1em;
+  animation: fade 2s ease-in-out infinite alternate;
+}
+
+@keyframes fade {
+  from { opacity: 1; }
+  to   { opacity: 0.2; }
+}
+
+/* Part 3: Classes used by JavaScript */
+
+/* Animate box on click */
+.box {
+  width: 80px;
+  height: 80px;
+  background: seagreen;
+  margin-top: 1em;
+  transition: transform 0.5s ease;
+}
+
+.box.animate {
+  transform: translateX(200px) rotate(45deg);
+}
+
+/* Loader (hidden by default) */
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e74c3c;
+  border-radius: 50%;
+  margin-top: 1em;
+  display: none;
+  animation: spin 1s linear infinite;
+}
+
+.loader.active {
+  display: block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Card flip */
+.card {
+  width: 120px;
+  height: 160px;
+  perspective: 600px;
+  margin-top: 1em;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.card-front {
+  background: #f1c40f;
+}
+
+.card-back {
+  background: #2ecc71;
+  transform: rotateY(180deg);
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 1em 1.5em;
+  border-radius: 4px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0.25em;
+  right: 0.5em;
+  cursor: pointer;
+  font-size: 1.2em;
+}
